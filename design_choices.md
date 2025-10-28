@@ -14,7 +14,7 @@ Cons: heavier per connection, reconnection complex
 
 
 ### Approach B
-1. Each sensor runs from agent that connects to the Flask server over a websocket
+1. Each sensor runs an agent that connects to the Flask server over a websocket
 2. Sensor sends hello (sensor ID)
 3. Servers send T0, Δ
 4. Sensor sends periodic data frames(T0, T0 + Δ, T0 + 2Δ,... )
