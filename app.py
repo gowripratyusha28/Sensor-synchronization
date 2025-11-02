@@ -3,8 +3,8 @@ from sensorsync.routes import configure_routes
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('config.Config')
-    configure_routes(app)
+    app.config.from_object('config.Config') # get configuration details
+    configure_routes(app) # get the routes
     return app
 
 if __name__ == '__main__':

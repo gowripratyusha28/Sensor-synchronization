@@ -1,0 +1,74 @@
+/* Dark mode base */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;      /* very dark background */
+    color: #e0e0e0;           /* light gray text */
+  }
+  
+  /* Container styling */
+  .container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  .header .status {
+    font-size: 1.1rem;
+  }
+  .header .status-running {
+    color: #50c878;  /* nice green accent */
+    font-weight: bold;
+  }
+  .header .time {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    color: #bbbbbb;
+  }
+  
+  /* Cards layout & styling */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: #1e1e1e;   /* dark card background */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+  }
+  .card h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #ffffff;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  .sensor-list, .sync-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sensor-list li, .sync-list li {
+    padding: 10px;
+    margin-bottom: 8px;
+    background: #2a2a2a;   /* slightly lighter dark background */
+    border: 1px solid #444444;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: #dddddd;
+  }
+  .sensor-list li:last-child, .sync-list li:last-child {
+    margin-bottom: 0;
+  }
+  

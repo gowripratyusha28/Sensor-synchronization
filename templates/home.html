@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sensor Synchronization Server</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Sensor Synchronization Server</h1>
+      <p class="status">Status: <span class="status-running">Running</span></p>
+      <p class="time">Server Time (ms): <strong>{{ server_time_ms }}</strong></p>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h2>Connected Sensors</h2>
+        <ul id="sensor-list" class="sensor-list"></ul>
+      </div>
+      <div class="card">
+        <h2>Recent Syncs</h2>
+        <ul id="recent-syncs" class="sync-list"></ul>
+      </div>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
