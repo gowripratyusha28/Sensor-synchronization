@@ -1,7 +1,7 @@
-from flask import render_template
+from flask import render_template, request
 import time
 
-sensor_data = {}
+sid_to_sensor = {}
 
 def configure_routes(app, socketio):
     @app.route('/')
