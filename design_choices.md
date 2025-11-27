@@ -25,3 +25,8 @@ Cons: Requires code deployment on sensors, listening socket on server
 For synchronization: For timebeing can use NTP, can switch to PTP later(reference given by Edwin)
 Δ - For the initial basic, I will make it large.. once it works will reduce it
 ε - acceptance tolerance around each timestamp
+
+
+
+pip install flask-socketio eventlet
+
