@@ -34,3 +34,13 @@ def configure_routes(app, socketio):
         sid_to_sensor[sid] = sensor_id
 
         print(f"[WS] Sensor registered: sid={sid}, sensor_id={sensor_id}")
+
+        # emit to browser
+        socketio.emit(
+            "sensor_registered",
+            {
+                "sensor_id": sensor_id,
+                "sid": sid,
+                "meta": data.get("meta", {})
+            }
+        )

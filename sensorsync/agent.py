@@ -20,6 +20,17 @@ def main():
         default="simulated",
         help="Optional description of the sensor type",
     )
+    parser.add_argument(
+        "--run-id",
+        default="local_test",
+        help="Experiment/run identifier",
+    )
+    parser.add_argument(
+        "--interval",
+        type=float,
+        default=1.0,
+        help="Sampling interval in seconds",
+    )
     args = parser.parse_args()
 
     sensor_id = get_sensor_id()
