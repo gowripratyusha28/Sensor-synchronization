@@ -40,7 +40,12 @@ def configure_routes(app, socketio):
             "sensor_registered",
             {
                 "sensor_id": sensor_id,
-                "sid": sid,
                 "meta": data.get("meta", {})
             }
         )
+
+    @socketio.on("get_sensors")
+    def handle_get_sensors():
+        sensors = list(sid_to_sensor.values())
+        print(f"[WS] get_sensors requested, returning {sensors}")
+        socketio.emit("sensor_list", {"sensors": sensors}, to=request.sid)

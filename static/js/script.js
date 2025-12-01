@@ -1,25 +1,37 @@
 window.addEventListener('DOMContentLoaded', () => {
     const sensorListElem = document.getElementById('sensor-list');
-    const syncListElem   = document.getElementById('recent-syncs');
+    // const syncListElem   = document.getElementById('recent-syncs');
 
-    const sensorRows = new Map();
+    //const sensorRows = new Map();
 
     const socket = io(); 
 
     socket.on('connect', () => {
       console.log('[UI] Connected to Socket.IO as', socket.id);
+      socket.emit('get_sensors');
+    });
+
+    socket.on("sensor_list", (data) => {
+      console.log('[UI] Received sensor list:', data.sensors);
+      sensorListElem.innerHTML = "";
+      data.sensors.forEach(sensorId => {
+        const li = document.createElement("li");
+        li.setAttribute("data-sensor-id", sensorId);
+        li.textContent = sensorId + " — waiting for data…";
+        sensorListElem.appendChild(li);
+      });
     });
 
     socket.on('sensor_registered', (data) => {
       const sensorId = data.sensor_id;
       console.log('[UI] Sensor registered:', sensorId);
 
-      if (sensorRows.has(sensorId)) return;
-
-      const li = document.createElement('li');
-      li.textContent = `${sensorId} — waiting for data...`;
-      sensorListElem.appendChild(li);
-      sensorRows.set(sensorId, li);
+      if (!document.querySelector(`li[data-sensor-id="${sensorId}"]`)) {
+        const li = document.createElement("li");
+        li.setAttribute("data-sensor-id", sensorId);
+        li.textContent = sensorId + " — waiting for data…";
+        sensorListElem.appendChild(li);
+      }
     });
   
     // Example placeholder sensors
